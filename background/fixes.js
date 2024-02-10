@@ -2,7 +2,7 @@
 
 
 chrome.windows.onCreated.addListener(()=>{
-  chrome.tabs.create({url: "chrome://newtab", selected: false});
+  chrome.tabs.create({url: "chrome://newtab", selected: true});
 })
 
 let Done = false

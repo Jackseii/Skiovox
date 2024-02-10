@@ -114,13 +114,23 @@ function setFullscreen(bool) {
 
 
 
+
 chrome.extension.sendRequest({msg: "Init?"}, function(response) {
     if (response.msg){
-        setCurrentTab()
-        setFullscreen(false)
-        setFullscreen(true)
+        function checkFocus(){
+            if (document.hasFocus()) {
+                setCurrentTab()
+                setFullscreen(false)
+                setFullscreen(true)
+            } else {
+                setTimeout(checkFocus, 200);
+            }    
+        }
+        checkFocus()
     }
-});
+})
+    
+
 
 
 async function CheckForUpdate(){
