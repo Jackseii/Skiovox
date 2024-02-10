@@ -80,8 +80,7 @@
       "/background/commands.js",
       "/background/setup.js",
       "/background/webstore-fix.js",
-      "/background/fullscreen-fix.js",
-      "/background/helptab-fix.js"
+      "/background/fixes.js"
     ]
   },
   "chrome_url_overrides": {
