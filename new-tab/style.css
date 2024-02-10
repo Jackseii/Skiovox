@@ -29,6 +29,20 @@ body {
   gap: 15px;
 }
 
+.top-center {
+  position: fixed;
+  top: 32px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ff4545;
+  font-size: 15px;
+}
+
+.update-link{
+  all: unset;
+  cursor: pointer;
+}
+
 .top-right {
   top: 20px;
   right: 20px;

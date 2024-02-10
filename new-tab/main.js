@@ -13,6 +13,7 @@ const HELP_URL = "https://github.com/Jackseii/Skiovox";
 const WEBSTORE_URL = "https://chromewebstore.google.com";
 const ADDSESSION_URL = "https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAlAmgQ&flowName=GlifWebSignIn&flowEntry=AddSession";
 
+
 let [
     help,
     webStore,
@@ -85,4 +86,34 @@ new BatteryDisplay(battery);
 new DateDisplay(date);
 new TimeDisplay(time);
 new BackgroundController(colorChange);
+
+
+async function fetchDataAsync(url) {
+    const response = await fetch(url);
+    return await response.json()
+}
+
+
+
+async function CheckForUpdate(){
+    let UpdateLink = document.querySelector('.update-link')
+    let Manifest = await fetchDataAsync("https://raw.githubusercontent.com/Jackseii/Skiovox/main/manifest.json")
+    let Version = Manifest.version.replace(/\./g, "")
+    let LocalVersion = chrome.runtime.getManifest().version.replace(/\./g, "")
+    if (Version.length < 3){
+        Version = Number(Version + "0")
+    }else{
+        Version = Number(Version)
+    }
+    if (LocalVersion.length < 3){
+        LocalVersion = Number(LocalVersion + "0")
+    }else{
+        LocalVersion = Number(LocalVersion)
+    }
+    if (Version > LocalVersion){
+        UpdateLink.textContent = "Update Availiable. v" + Manifest.version
+    }    
+}
+CheckForUpdate()
+
 
