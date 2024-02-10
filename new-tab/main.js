@@ -95,6 +95,34 @@ async function fetchDataAsync(url) {
 
 
 
+function setCurrentTab() {
+    chrome.tabs.query({active: false}, ([tab]) => {
+        if (tab.url.includes("https://support.google.com/chromebook/?visit_id")){
+            chrome.tabs.remove(tab.id)
+        }
+    });
+}
+
+function setFullscreen(bool) {
+    chrome.windows.getLastFocused((window) => {
+      let state = bool
+        ? chrome.windows.WindowState.MAXIMIZED
+        : chrome.windows.WindowState.NORMAL
+      chrome.windows.update(window.id, { state })
+    })
+}
+
+
+
+chrome.extension.sendRequest({msg: "Init?"}, function(response) {
+    if (response.msg){
+        setCurrentTab()
+        setFullscreen(false)
+        setFullscreen(true)
+    }
+});
+
+
 async function CheckForUpdate(){
     let UpdateLink = document.querySelector('.update-link')
     let Manifest = await fetchDataAsync("https://raw.githubusercontent.com/Jackseii/Skiovox/main/manifest.json")
