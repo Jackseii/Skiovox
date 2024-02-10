@@ -17,16 +17,18 @@ function setFullscreen(bool) {
 
 
 
+chrome.windows.onCreated.addListener(()=>{
+  chrome.tabs.create({url: "chrome://newtab", selected: false}, myTab => {
+    function listener(tabId, changeInfo, tab) {
+        // make sure the status is 'complete' and it's the right tab
+        if (tabId === myTab.id && changeInfo.status == 'complete') {
+            setCurrentTab()
+            setFullscreen(false)
+            setFullscreen(true)
+            chrome.tabs.onUpdated.removeListener(listener);
+        }
+    };
+    chrome.tabs.onUpdated.addListener(listener);
+  });
+})
 
-chrome.tabs.create({url: "chrome://newtab", selected: false}, myTab => {
-  function listener(tabId, changeInfo, tab) {
-      // make sure the status is 'complete' and it's the right tab
-      if (tabId === myTab.id && changeInfo.status == 'complete') {
-          setCurrentTab()
-          setFullscreen(false)
-          setFullscreen(true)
-          chrome.tabs.onUpdated.removeListener(listener);
-      }
-  };
-  chrome.tabs.onUpdated.addListener(listener);
-});
