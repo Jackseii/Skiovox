@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "2.4.2",
+  "version": "2.5",
   "name": "Skiovox Helper",
   "description": "Updated version of the Skiovox extension. Should be used with Skiovox Exploit",
   "icons": {
