@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "2.5",
+  "version": "2.5.1",
   "name": "Skiovox Helper",
   "description": "Updated version of the Skiovox extension. Should be used with Skiovox Exploit",
   "icons": {
@@ -23,12 +23,6 @@
     "RESTORE_TAB": {
       "description": "Ctrl+Shift+T"
     },
-    "NEW_WINDOW": {
-      "description": "Ctrl+N"
-    },
-    "NEW_INCOG_WINDOW": {
-      "description": "Ctrl+Shift+N"
-    },
     "CLOSE_WINDOW": {
       "description": "Ctrl+Shift+W"
     },
@@ -37,9 +31,6 @@
     },
     "TAB_BACK": {
       "description": "Cycle backwards through tabs: Ctrl+Shift+Q"
-    },
-    "SWITCH_WINDOWS": {
-      "description": "Switch windows: Alt+Q"
     },
     "CTRL_1": {
       "description": "Ctrl+1"

@@ -9,6 +9,25 @@ body {
   color: #ffffff;
 }
 
+@keyframes unfade {
+  from {filter: blur("10px");}
+  to {filter: none;}
+}
+
+@keyframes hide {
+  from {opacity: 50%;}
+  to {opacity: 0%; display: none;}
+}
+
+.holder {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  
+}
+
 .top-left {
   position: fixed;
   top: 20px;
@@ -101,6 +120,28 @@ svg:hover {
   cursor: move;
 }
 
+.startup {
+
+  background-color: rgb(0, 0, 0);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 50%;
+  display: none;
+  
+}
+.startup .center {
+  color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+}
+
 /* alternate mode */
 
 body.black-text {
@@ -110,3 +151,4 @@ body.black-text {
 body.black-text svg {
   filter: brightness(0);
 }
+

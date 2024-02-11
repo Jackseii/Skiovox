@@ -32,6 +32,8 @@ let chrome_version = document.querySelector('.chrome_version')
 let date = document.querySelector('.date')
 let time = document.querySelector('.time')
 let battery = document.querySelector('.battery')
+let holder = document.querySelector('.holder')
+let startup = document.querySelector('.startup')
 
 version.textContent = "v" + chrome.runtime.getManifest().version
 chrome_version.textContent =  "Crm v" + Number(navigator.appVersion.match(/Chrom(e|ium)\/([0-9]+)/)[2])
@@ -117,11 +119,15 @@ function setFullscreen(bool) {
 
 chrome.extension.sendRequest({msg: "Init?"}, function(response) {
     if (response.msg){
+        holder.style.filter = "blur(10px)"
+        startup.style.display = "block"
         function checkFocus(){
             if (document.hasFocus()) {
                 setCurrentTab()
                 setFullscreen(false)
                 setFullscreen(true)
+                holder.style.animation = "unfade 1s forwards"
+                startup.style.animation = "hide 1s forwards"
             } else {
                 setTimeout(checkFocus, 200);
             }    

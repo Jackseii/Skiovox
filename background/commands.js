@@ -60,14 +60,6 @@ async function onCommand(name, currentTab) {
       chrome.sessions.restore();
       break;
 
-    case "NEW_WINDOW":
-      chrome.windows.create({ state: "maximized" });
-      break;
-
-    case "NEW_INCOG_WINDOW":
-      chrome.windows.create({ state: "maximized", incognito: true });
-      break;
-
     case "CLOSE_WINDOW":
       if (recentWindow.focused) {
         chrome.windows.remove(recentWindow.id);
@@ -80,14 +72,6 @@ async function onCommand(name, currentTab) {
 
     case "TAB_BACK":
       cycleTabs(recentTabs, -1)
-      break;
-
-    case "SWITCH_WINDOWS":
-      chrome.windows.getAll((windows) => {
-        if (windows.length > 1) {
-          chrome.windows.update(recentWindow.id, { focused: false });
-        }
-      })
       break;
 
     case "FULL_SCREEN":
