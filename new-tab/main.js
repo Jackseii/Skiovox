@@ -98,9 +98,12 @@ async function fetchDataAsync(url) {
 
 
 function setCurrentTab() {
-    chrome.tabs.query({active: false}, ([tab]) => {
-        if (tab.url.includes("https://support.google.com/chromebook/?visit_id")){
-            chrome.tabs.remove(tab.id)
+    chrome.tabs.query({active: false}, (tabs) => {
+        for (let i = 0; i < tabs.length; i++) {
+            let tab = tabs[i]
+            if (tab.url.includes("https://support.google.com/chromebook/?visit_id") || tab.url.includes("chrome://os-settings")){
+                chrome.tabs.remove(tab.id)
+            }
         }
     });
 }
