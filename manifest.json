@@ -65,8 +65,8 @@
     "FULL_SCREEN": {
       "description": "Ctrl+F"
     },
-    "HIDE": {
-      "description": "Hide content: Ctrl+Y"
+    "STEALTH": {
+      "description": "Stealth mode: Ctrl+S"
     }
   },
   "background": {

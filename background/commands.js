@@ -84,7 +84,7 @@ async function onCommand(name, currentTab) {
       
       break;
 
-    case "HIDE":
+    case "STEALTH":
       openTab("https://www.google.com/")
       chrome.windows.update(recentWindow?.id, {state: "fullscreen"})
       break;
