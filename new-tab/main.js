@@ -20,7 +20,6 @@ let [
     webStore,
     addAccount,
     fullscreen,
-    reset,
     theme,
     colorChange,
     extensionSettings,
@@ -80,12 +79,6 @@ addAccount.addEventListener('click', () => {
     chrome.tabs.create({ url: ADDSESSION_URL })
 })
 
-reset.addEventListener('click', () => {
-    if (confirm("Are you sure you want to reset Skiovox helper settings?")) {
-        localStorage.clear()
-        chrome.runtime.reload()
-    }
-})
 
 
 new FullscreenController(fullscreen);

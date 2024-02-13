@@ -25,8 +25,16 @@ stealthTextBox.addEventListener("input", (event)=>{
 //Bottom Left Bar
 const SHORTCUTS_URL = "chrome://extensions/shortcuts"
 let [
+    reset,
     keybinds
 ] = document.querySelectorAll('svg')
+
+reset.addEventListener('click', () => {
+    if (confirm("Are you sure you want to reset Skiovox helper settings?")) {
+        localStorage.clear()
+        chrome.runtime.reload()
+    }
+})
 
 keybinds.addEventListener('click', () => {
     chrome.tabs.create({ url: SHORTCUTS_URL })
