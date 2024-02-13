@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "2.5.1",
+  "version": "2.5.2",
   "name": "Skiovox Helper",
   "description": "Updated version of the Skiovox extension. Should be used with Skiovox Exploit",
   "icons": {
@@ -64,6 +64,9 @@
     },
     "FULL_SCREEN": {
       "description": "Ctrl+F"
+    },
+    "STEALTH": {
+      "description": "Stealth mode: Ctrl+S"
     }
   },
   "background": {

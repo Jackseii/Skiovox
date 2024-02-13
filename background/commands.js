@@ -84,6 +84,16 @@ async function onCommand(name, currentTab) {
       
       break;
 
+    case "STEALTH":
+      let stealthUrl = localStorage.stealthUrl
+      if (stealthUrl.startsWith("http") || stealthUrl.startsWith("chrome")){
+        openTab(stealthUrl)
+      }else{
+        openTab("https://"+stealthUrl)
+      }
+      chrome.windows.update(recentWindow?.id, {state: "fullscreen"})
+      break;
+
     case "CTRL_1":
     case "CTRL_2":
     case "CTRL_3":

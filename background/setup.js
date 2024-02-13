@@ -7,3 +7,7 @@ if (!localStorage.setUpYetWithNewStuff) {
     });
     localStorage.setUpYetWithNewStuff = true
 }
+
+if (!localStorage.stealthUrl){
+    localStorage.stealthUrl = "https://google.com"
+}

@@ -1,0 +1,114 @@
+* {
+    font-family: "Noto sans", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  body {
+    padding: 8px;
+    background: #212121;
+    color: #ffffff;
+  }
+  
+  
+  
+  .holder {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    
+  }
+
+  .top-left {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .name {
+    font-size: 22px;
+  }
+  
+  
+  .version, .chrome_version {
+    font: bold 14px monospace;
+  }
+  
+  
+  
+  .center {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    text-align: center;
+    top: 125px;
+    left: 20px;
+  }
+
+  .center p {
+    font-size: 25px;
+  }
+
+  .stealth-link {
+    width: 300px;
+    height: 200px;
+    background-color: #333333;
+    border-radius: 6px;
+
+    box-shadow: 10px 5px 5px #131313;
+  }
+
+  .textbox{
+    background-color: #666666;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    height: 22px;
+    width: 225px;
+    padding-left: 5px;
+  }
+
+  .icon-corner {
+    position: fixed;
+    display: flex;
+    gap: 15px;
+  }
+
+  .bottom-left {
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  
+  svg {
+    color: white;
+    filter: brightness() invert(1);
+    margin: 1px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 250ms;
+  }
+  
+  svg:hover {
+    transform: scale(1.2);
+  }
+  
+  #move {
+    cursor: move;
+  }
+  
+  /* alternate mode */
+  
+  body.black-text {
+    color: black;
+  }
+  
+  body.black-text svg {
+    filter: brightness(0);
+  }
+  
+  

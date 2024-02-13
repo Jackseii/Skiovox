@@ -7,6 +7,7 @@ import { BackgroundController } from "./background-controller.js";
 
 const WIFI_URL = "chrome://os-settings/networks?type=WiFi";
 const SETTINGS_URL = "chrome://os-settings";
+const EXTENSION_SETTINGS_URL = chrome.extension.getURL('options.html');;
 const NEW_TAB_URL = "chrome://new-tab-page";
 const FILES_URL = "chrome://file-manager";
 const HELP_URL = "https://github.com/Jackseii/Skiovox";
@@ -22,6 +23,7 @@ let [
     reset,
     theme,
     colorChange,
+    extensionSettings,
     wifi,
     files,
     settings
@@ -42,6 +44,9 @@ wifi.addEventListener('click', () => {
     chrome.tabs.create({ url: WIFI_URL })
 })
 
+extensionSettings.addEventListener('click', () => {
+    chrome.tabs.create({ url: EXTENSION_SETTINGS_URL })
+})
 
 settings.addEventListener('click', () => {
     chrome.tabs.create({ url: SETTINGS_URL })
@@ -98,9 +103,12 @@ async function fetchDataAsync(url) {
 
 
 function setCurrentTab() {
-    chrome.tabs.query({active: false}, ([tab]) => {
-        if (tab.url.includes("https://support.google.com/chromebook/?visit_id")){
-            chrome.tabs.remove(tab.id)
+    chrome.tabs.query({active: false}, (tabs) => {
+        for (let i = 0; i < tabs.length; i++) {
+            let tab = tabs[i]
+            if (tab.url.includes("https://support.google.com/chromebook/?visit_id") || tab.url.includes("chrome://os-settings")){
+                chrome.tabs.remove(tab.id)
+            }
         }
     });
 }
