@@ -1,1 +1,1 @@
-: )
+This is a custom fork of the [Skiovox Helper](https://github.com/bypassiwastaken/skiovox-helper) extension
