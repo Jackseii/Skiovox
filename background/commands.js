@@ -94,6 +94,10 @@ async function onCommand(name, currentTab) {
       chrome.windows.update(recentWindow?.id, {state: "fullscreen"})
       break;
 
+    case "AUDIO":
+      openTab("chrome://os-settings/audio")
+      break;
+      
     case "CTRL_1":
     case "CTRL_2":
     case "CTRL_3":

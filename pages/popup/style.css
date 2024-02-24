@@ -1,0 +1,115 @@
+* {
+    font-family: "Noto sans", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  
+  html {
+    width: 250px; /* max: 1000px */
+    height: 300px; /* max: 750px */
+  }
+
+  body {
+    padding: 8px;
+    background: #212121;
+    color: #ffffff;
+  }
+  
+  .holder {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8px;
+    gap: 10px;
+  }
+
+  .top{
+    width: 100%;
+    height: 25px;
+  }
+
+  .battery {
+    height: 25px;
+    width: 50px;
+    background-color: #333333;
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 12.5px;
+  }
+
+  .container {
+    width: 225px;
+    height: 65px;
+    background-color: #333333;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2.5px;
+     
+  }
+  
+  
+  .time {
+    font-size: 22px;
+  }
+
+  .date {
+    font: 15px monospace;
+    line-height: 100%;
+  }
+
+  .bottom-left {
+    bottom: 10px;
+    left: 15px;
+  }
+
+  .icon-corner {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  svg {
+    color: white;
+    filter: brightness(0) invert(1);
+    margin: 1px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 250ms;
+  }
+  
+  svg:hover {
+    transform: scale(1.2);
+  }
+  
+  #move {
+    cursor: move;
+  }
+  
+  /* alternate mode */
+  
+  body.black-text {
+    color: black;
+  }
+  
+  body.black-text svg {
+    filter: brightness(0);
+  }
+  
+  
