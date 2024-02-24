@@ -37,5 +37,7 @@ reset.addEventListener('click', () => {
 })
 
 keybinds.addEventListener('click', () => {
-    chrome.tabs.create({ url: SHORTCUTS_URL })
+    chrome.tabs.getCurrent((tab) => {
+        chrome.tabs.update(tab.id, { url: SHORTCUTS_URL });
+    });
 })
