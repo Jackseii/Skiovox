@@ -10,12 +10,15 @@ new TimeDisplay(time)
 new DateDisplay(date)
 
 const HOME_URL = "chrome://newtab"
-const EXTENSION_SETTINGS_URL = chrome.extension.getURL('options.html');
+const WIFI_URL = "chrome://os-settings/networks?type=WiFi";
 const AUDIO_URL = "chrome://os-settings/audio"
+const EXTENSION_SETTINGS_URL = chrome.extension.getURL('options.html');
+
 
 let [
     home,
     audio,
+    wifi,
     settings
 ] = document.querySelectorAll('svg')
 
@@ -25,6 +28,10 @@ home.addEventListener('click', () => {
 
 audio.addEventListener('click', () => {
     chrome.tabs.create({ url: AUDIO_URL })
+})
+
+wifi.addEventListener('click', () => {
+    chrome.tabs.create({ url: WIFI_URL })
 })
 
 settings.addEventListener('click', () => {
