@@ -19,11 +19,15 @@ class BatteryDisplay {
 
     async render() {
         let battery = await this.getBattery()
-        this.element.textContent = this.getPercentMessage(battery);
+        this.element.textContent = this.getPercentMessage(battery) + this.getChargingMessage(battery)
     }
 
     getPercentMessage(battery) {
         return `${Math.round(battery.level * 100)}%`
+    }
+
+    getChargingMessage(battery) {
+        return battery.charging ? " ~" : ""
     }
 
 
